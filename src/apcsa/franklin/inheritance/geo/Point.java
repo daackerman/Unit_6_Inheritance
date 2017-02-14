@@ -6,7 +6,8 @@ import apcsa.franklin.inheritance.geo.stddraw.StdDraw;
  * This class represents a Point object.
  *
  * It has an x and a y coordinate and can calculate distance from itself to another Point. It also has
- * an equals method to determine if it is the same as another point (same x and y). Since Point is Drawable,
+ * an equals method to determine if it is the same as another point (same x and y). It can also determine the slope
+ * between points and can determine if three points all lie on the same line. Since Point is Drawable,
  * it has a translate and a draw method.
  *
  * Implements: Drawable.
@@ -68,8 +69,16 @@ public class Point implements Drawable {
         }
     }
 
+    /**
+     * Determines if this and two other points lie on the same line.
+     * @param a a Point.
+     * @param b another Point.
+     * @return true if the three points lie on the same line,
+     *         false otherwise.
+     */
     public boolean isCollinear(Point a, Point b) {
-        return Math.abs(this.getSlope(a) - this.getSlope(b)) <= 0.001;
+        return (this.equals(a) || this.equals(b) || a.equals(b)) ||
+                Math.abs(this.getSlope(a) - this.getSlope(b)) <= 0.001;
     }
 
     //Equals method.

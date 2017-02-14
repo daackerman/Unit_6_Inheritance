@@ -1,10 +1,10 @@
 package apcsa.franklin.inheritance.bankaccount;
 
 /**
- * This class represents a LinkedBankAccount which has additional features. A LinkedBankAccount is a bankaccount
- * connected to another bankaccount object. Unlike bankaccount, if you attempt to withdraw more money that you have
- * in the bankaccount it will pull from the bankaccount it is linked to and charge a $25.00 overdraft fee.
- * It also allows you to transfer money between this LinkedBankAccount and the bankaccount it is linked with.
+ * This class represents a LinkedBankAccount which has additional features. A LinkedBankAccount is a BankAccount
+ * connected to another BankAccount object. Unlike BankAccount, if you attempt to withdraw more money that you have
+ * in the BankAccount it will pull from the BankAccount it is linked to and charge a $25.00 overdraft fee.
+ * It also allows you to transfer money between this LinkedBankAccount and the BankAccount it is linked with.
  */
 public class LinkedBankAccount extends BankAccount {
     private BankAccount linkedAccount;
@@ -46,9 +46,10 @@ public class LinkedBankAccount extends BankAccount {
 
     /**
      * Transfers an amount from this LinkedBankAccount to the linked account.
-     * If amt > 0 it withdraws from this and deposits in link.
-     * If amt < 0 it withdraws from link and deposits in this.
+     * If amt is positive it withdraws from this and deposits in link.
+     * If amt is negative it withdraws from link and deposits in this.
      * @param amt the amount to transfer.
+     * @return a String representing the transfer.
      */
     public String transfer(double amt) {
         if (amt > getBalance() || amt < -linkedAccount.getBalance()) {

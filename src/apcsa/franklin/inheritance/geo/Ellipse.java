@@ -6,6 +6,7 @@ import apcsa.franklin.inheritance.geo.stddraw.StdDraw;
  * This class represents an Ellipse which has a center, width and height.
  *
  * Implements: Shape2D
+ * Subclasses: Circle
  */
 public class Ellipse implements Shape2D {
     private Point center;
@@ -25,6 +26,18 @@ public class Ellipse implements Shape2D {
         this.center = new Point(center);
         this.dx = dx;
         this.dy = dy;
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public double getMajorAxis() {
+        return Math.max(dx, dy);
+    }
+
+    public double getMinorAxis() {
+        return Math.min(dx, dy);
     }
 
     //Drawable methods

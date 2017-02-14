@@ -33,17 +33,27 @@ public class GeoRunner {
         Triangle tri2 = new Triangle(origin, right, bottom);
         Triangle tri3 = new Triangle(origin, bottom, left);
         Triangle tri4 = new Triangle(origin, left, top);
+        RegularPolygon poly = new RegularPolygon(origin, SCALE/2, 6);
+        RegularPolygon innerPoly = circle.getInscribedPolygon(5);
+        RegularPolygon outterPoly = circle.getCircumscribedPolygon(4);
+        Circle circum = poly.getCircumscribedCircle();
+        Circle inscribed = poly.getInscribedCircle();
 
         //Fill list of shapes with shapes.
         shapes.add(rect);
-        shapes.add(circle);
         shapes.add(tri1);
         shapes.add(tri2);
         shapes.add(tri3);
         shapes.add(tri4);
+        shapes.add(circle);
+        shapes.add(innerPoly);
+        shapes.add(outterPoly);
+        shapes.add(poly);
+        shapes.add(circum);
+        shapes.add(inscribed);
 
         //For each Drawable object in shapes, set the pen to a random color and draw it.
-        StdDraw.setPenRadius(0.010);
+        StdDraw.setPenRadius(0.005);
         for (Drawable d: shapes) {
             getRandomColor();
             d.draw();

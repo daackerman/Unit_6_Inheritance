@@ -8,7 +8,7 @@ import apcsa.franklin.inheritance.geo.stddraw.StdDraw;
  * finding the area up to its subclasses which use difference formulas.
  *
  * Implements: Shape2D
- * Subclasses: Rectangle, Triangle, Square.
+ * Subclasses: Triangle, Rectangle, Square, RegularHexagon.
  */
 public abstract class Polygon implements Shape2D {
     //Array of this Polygon's vertices.
@@ -48,16 +48,7 @@ public abstract class Polygon implements Shape2D {
         return y;
     }
 
-    //Calculates the perimeter of a Polygon
-    public double perimeter() {
-        double sum = 0;
-        for (int i = 0; i < vertices.length - 1; i++) {
-            sum += vertices[i].distanceTo(vertices[i + 1]);
-        }
-        sum += vertices[0].distanceTo(vertices[vertices.length - 1]);
-        return sum;
-    }
-
+    //Drawable methods
     /**
      * Translates each vertex dx units left/right and dy units up/down.
      */
@@ -72,6 +63,20 @@ public abstract class Polygon implements Shape2D {
      */
     public void draw() {
         StdDraw.polygon(getXs(), getYs());
+    }
+
+
+    //Shape2D methods
+    /**
+     * Calculates the perimeter of a Polygon.
+     */
+    public double perimeter() {
+        double sum = 0;
+        for (int i = 0; i < vertices.length - 1; i++) {
+            sum += vertices[i].distanceTo(vertices[i + 1]);
+        }
+        sum += vertices[0].distanceTo(vertices[vertices.length - 1]);
+        return sum;
     }
 
     /**
