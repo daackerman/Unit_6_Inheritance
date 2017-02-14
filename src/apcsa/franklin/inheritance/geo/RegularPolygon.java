@@ -47,6 +47,14 @@ public class RegularPolygon extends Polygon {
         translate(c.getX(), c.getY());
     }
 
+    /**
+     * Constructor makes a unit n-gon with sides sides centered at the origin.
+     * @param sides number of sides.
+     */
+    public RegularPolygon(int sides) {
+        this(new Point(), 1, sides);
+    }
+
     private double distToVertex() {
         return radius / Math.cos(centralAngle()/2);
     }

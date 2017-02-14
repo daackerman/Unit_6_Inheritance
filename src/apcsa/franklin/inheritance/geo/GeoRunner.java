@@ -20,6 +20,7 @@ public class GeoRunner {
         setUp();
         ArrayList<Shape2D> shapes = new ArrayList<Shape2D>();
 
+        //Set up some reference Points
         Point origin = new Point(0, 0);
         Point top = new Point(0, SCALE/2);
         Point right = new Point(SCALE/2, 0);

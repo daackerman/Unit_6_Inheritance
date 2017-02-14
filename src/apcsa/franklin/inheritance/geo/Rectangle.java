@@ -20,6 +20,15 @@ public class Rectangle extends Polygon {
     //Half the height
     private double dy;
 
+    /**
+     * Constructor for a Rectangle.
+     *
+     * Takes a Point for the center of the Rectangle, half the width, and half the height to determine the
+     * dimensions of the Rectangle.
+     * @param center the center of the Rectangle.
+     * @param dx half the width.
+     * @param dy half the height.
+     */
     public Rectangle(Point center, double dx, double dy) {
         if (dx <= 0 || dy <= 0){
             throw new IllegalArgumentException("Invalid dimensions");

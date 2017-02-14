@@ -15,4 +15,13 @@ public class Square extends Rectangle {
     public Square(Point center, double dx) {
         super(center, dx, dx);
     }
+
+    /**
+     * Default constructor.
+     *
+     * Creates the unit Square centered at the origin.
+     */
+    public Square() {
+        this(new Point(), 0.5);
+    }
 }

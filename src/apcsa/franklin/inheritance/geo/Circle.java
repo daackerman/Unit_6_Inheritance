@@ -18,6 +18,15 @@ public class Circle extends Ellipse {
         super(center, r, r);
     }
 
+    /**
+     * Default constructor for a Circle.
+     *
+     * Creates a unit circle centered at the origin.
+     */
+    public Circle() {
+        this(new Point(), 1);
+    }
+
     public double getRadius() {
         return getMajorAxis();
     }

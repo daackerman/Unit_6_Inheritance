@@ -24,8 +24,11 @@ public class Point implements Drawable {
     }
 
     public Point(Point other) {
-        setX(other.x);
-        setY(other.y);
+        this(other.x, other.y);
+    }
+
+    public Point() {
+        this(0,0);
     }
 
     //Setters
