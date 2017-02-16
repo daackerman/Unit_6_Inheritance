@@ -3,7 +3,7 @@ package apcsa.franklin.inheritance.bankaccount;
 /**
  * This class represents a LinkedBankAccount which has additional features. A LinkedBankAccount is a BankAccount
  * connected to another BankAccount object. Unlike BankAccount, if you attempt to withdraw more money that you have
- * in the BankAccount it will pull from the BankAccount it is linked to and charge a $25.00 overdraft fee.
+ * in the BankAccount it will pull from the BankAccount it is linked to and charge a $35.00 overdraft fee.
  * It also allows you to transfer money between this LinkedBankAccount and the BankAccount it is linked with.
  */
 public class LinkedBankAccount extends BankAccount {
@@ -29,10 +29,10 @@ public class LinkedBankAccount extends BankAccount {
      */
     @Override
     public String withdraw(double amt) {
-        if (amt > this.getBalance() + linkedAccount.getBalance()) {
+        if (amt > this.getBalance() && linkedAccount.getBalance() < 35 + amt - this.getBalance()) {
             throw new IllegalArgumentException("Error: Insufficient funds.");
         }
-        if (amt > this.getBalance()) {
+        else if (amt > this.getBalance()) {
             double amtLeft = amt - this.getBalance() + 35;
             super.withdraw(getBalance());
             linkedAccount.withdraw(amtLeft);
